@@ -26,14 +26,14 @@
 
     <main class="contact-page">
         <h2>Contact Us</h2>
-        
+
         <div class="contact-container">
             <section class="contact-info">
                 <h3>Get in Touch</h3>
                 <p><strong>Email:</strong> info@TechPlug.co.za</p>
                 <p><strong>Phone:</strong> +27 12 345 6789</p>
                 <p><strong>Address:</strong> 123 Bottlebrush, Johannesburg, 2000</p>
-                
+
                 <div class="business-hours">
                     <h4>Business Hours</h4>
                     <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
@@ -41,7 +41,7 @@
                     <p>Sunday: Closed</p>
                 </div>
             </section>
-            
+
             <section class="contact-form">
                 <h3>Send Us a Message</h3>
                 <form id="contactForm">
@@ -49,31 +49,32 @@
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="subject">Subject:</label>
                         <input type="text" id="subject" name="subject" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="message">Message:</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    
+
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </section>
         </div>
-        
+
         <section class="location-map">
             <h3>Our Location</h3>
             <div class="map-container">
                 <img src="images/map.jpg" alt="Tech Haven Location">
+                <div id="googleMap" style="width:100%;height:400px;"></div>
             </div>
         </section>
     </main>
@@ -109,5 +110,16 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        function myMap() {
+            var mapProp = {
+                center: new google.maps.LatLng(51.508742, -0.120850),
+                zoom: 5,
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 </body>
 </html>
