@@ -12,6 +12,7 @@
     --text-light: #7f8c8d;
     --border-radius: 4px;
     --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --header-bg: linear-gradient(135deg, #3498db, #2ecc71);
 }
 
 * {
@@ -54,10 +55,10 @@ img {
 }
 
 header {
-    background-color: var(--primary-color);
+    background: var(--header-bg);
     color: white;
     padding: 1rem 0;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -78,6 +79,32 @@ header {
 header h1 {
     color: white;
     margin: 0;
+}
+
+.logo_n {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #3498db, #2ecc71, #e74c3c, #9b59b6);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 nav ul {
@@ -118,7 +145,7 @@ nav ul li a:hover, nav ul li a.active {
 .btn, .view-btn, .add-to-cart-btn, .checkout-btn, .submit-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--secondary-color);
+    background: var(--header-bg);
     color: white;
     border: none;
     border-radius: var(--border-radius);
