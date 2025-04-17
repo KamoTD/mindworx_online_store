@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About 11l2</title>
+    <title>About</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
@@ -11,7 +11,7 @@
     <header>
         <div class="logo-container">
             <img src="images/logo.jpg" alt="Tech Haven Logo" class="logo" style="border-radius: 50%;">
-            <h1>KamoTech Plug</h1>
+            <h1>Plug Tech</h1>
         </div>
         <nav>
             <ul>
@@ -19,36 +19,164 @@
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="store.html">Store</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="store.html" class="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+                <li id="auth-nav-item">
+                    <a href="login.html" id="login-link">Login</a>
+                    <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
+                </li>
+                <li><a href="#cart-section" class="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="about-page">
+        <!-- Hero Section with Circuit Board Background -->
         <section class="about-hero">
-            <h2>Our Story</h2>
-            <p>KamoTech Plug was founded in 2025 with a simple mission: to provide the highest quality computer hardware to enthusiasts and professionals across South Africa.</p>
+            <div class="hero-content">
+                <div class="tech-grid-overlay"></div>
+                <h2 class="glitch" data-text="Our Story">Our Story</h2>
+                <p class="hero-subtitle">Plug Tech Pty Ltd was founded in 2025 with a simple mission: to provide the highest quality computer hardware to enthusiasts and professionals across South Africa.</p>
+                <div class="tech-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="2025">0</div>
+                        <div class="stat-label">Founded</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="1000">0</div>
+                        <div class="stat-label">Products</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="50000">0</div>
+                        <div class="stat-label">Customers</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <!-- Mission Section with Tech Visualization -->
         <section class="mission">
-            <h2>Our Mission</h2>
-            <p>We believe everyone deserves access to premium technology that empowers creativity, productivity, and entertainment. Our carefully curated selection of components represents the best the industry has to offer.</p>
+            <div class="mission-container">
+                <div class="mission-content">
+                    <h2 class="section-title"><span class="hex">#</span>Our Mission</h2>
+                    <p class="mission-statement">We believe everyone deserves access to premium technology that empowers creativity, productivity, and entertainment. Our carefully curated selection of components represents the best the industry has to offer.</p>
+                    <div class="tech-visualization">
+                        <div class="cpu-visual"></div>
+                        <div class="gpu-visual"></div>
+                        <div class="ram-visual"></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <!-- Values Section with Hover Effects -->
         <section class="values">
-            <h2>Our Values</h2>
-            <div class="value-cards">
-                <div class="value-card">
-                    <h3>Quality</h3>
-                    <p>We source only the best components from trusted manufacturers.</p>
+            <div class="values-container">
+                <h2 class="section-title"><span class="binary">010101</span> Our Values <span class="binary">010101</span></h2>
+                <div class="value-cards">
+                    <div class="value-card">
+                        <div class="card-icon">
+                            <svg class="circuit-icon" viewBox="0 0 24 24">
+                                <path d="M3,17V7H5V17H3M19,17V7H21V17H19M11,13V11H13V13H11M7,13V11H9V13H7M15,13V11H17V13H15M11,17V15H13V17H11M7,17V15H9V17H7M15,17V15H17V17H15M11,9V7H13V9H11M7,9V7H9V9H7M15,9V7H17V9H15Z" />
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Quality</h3>
+                        <p class="value-description">We source only the best components from trusted manufacturers with rigorous quality control standards.</p>
+                        <div class="tech-tag">QOS Certified</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="card-icon">
+                            <svg class="chip-icon" viewBox="0 0 24 24">
+                                <path d="M6,3H18A2,2 0 0,1 20,5V19A2,2 0 0,1 18,21H6A2,2 0 0,1 4,19V5A2,2 0 0,1 6,3M6,5V19H18V5H6M13,11H15V13H13V11M11,11H9V13H11V11M19,11H17V13H19V11Z" />
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Expertise</h3>
+                        <p class="value-description">Our team consists of passionate tech experts with decades of combined experience ready to assist you.</p>
+                        <div class="tech-tag">IT Certified</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="card-icon">
+                            <svg class="server-icon" viewBox="0 0 24 24">
+                                <path d="M4,1H20A1,1 0 0,1 21,2V6A1,1 0 0,1 20,7H4A1,1 0 0,1 3,6V2A1,1 0 0,1 4,1M4,9H20A1,1 0 0,1 21,10V14A1,1 0 0,1 20,15H4A1,1 0 0,1 3,14V10A1,1 0 0,1 4,9M4,17H20A1,1 0 0,1 21,18V22A1,1 0 0,1 20,23H4A1,1 0 0,1 3,22V18A1,1 0 0,1 4,17M9,5H10V3H9V5M9,13H10V11H9V13M9,21H10V19H9V21M5,3V5H7V3H5M5,11V13H7V11H5M5,19V21H7V19H5Z" />
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Service</h3>
+                        <p class="value-description">We provide exceptional 24/7 customer service with fast response times and technical support.</p>
+                        <div class="tech-tag">24/7 Support</div>
+                    </div>
                 </div>
-                <div class="value-card">
-                    <h3>Expertise</h3>
-                    <p>Our team consists of passionate tech experts ready to assist you.</p>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team">
+            <div class="team-container">
+                <h2 class="section-title"><span class="code-bracket">{</span> The Tech Minds Behind KamoTech <span class="code-bracket">}</span></h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo" style="background-image: url('images/team1.jpg');">
+                            <div class="member-links">
+                                <a href="#"><i class="icon-linkedin"></i></a>
+                                <a href="#"><i class="icon-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>Kamogelo Ditshego</h3>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo" style="background-image: url('images/team2.jpg');">
+                            <div class="member-links">
+                                <a href="#"><i class="icon-linkedin"></i></a>
+                                <a href="#"><i class="icon-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>Keagile</h3>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo" style="background-image: url('images/team3.jpg');">
+                            <div class="member-links">
+                                <a href="#"><i class="icon-linkedin"></i></a>
+                                <a href="#"><i class="icon-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>Lebogang</h3>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo" style="background-image: url('images/team3.jpg');">
+                            <div class="member-links">
+                                <a href="#"><i class="icon-linkedin"></i></a>
+                                <a href="#"><i class="icon-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>Zanele</h3>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo" style="background-image: url('images/team3.jpg');">
+                            <div class="member-links">
+                                <a href="#"><i class="icon-linkedin"></i></a>
+                                <a href="#"><i class="icon-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>Sefeni</h3>
+                    </div>
                 </div>
-                <div class="value-card">
-                    <h3>Service</h3>
-                    <p>We provide exceptional customer service before, during, and after your purchase.</p>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section class="tech-stack">
+            <div class="tech-container">
+                <h2 class="section-title">Our Tech Ecosystem</h2>
+                <div class="tech-logos">
+                    <div class="tech-logo" data-tooltip="Intel Core Processors">
+                        <img src="images/intel_icon.png" alt="Intel">
+                    </div>
+                    <div class="tech-logo" data-tooltip="AMD Ryzen & Radeon">
+                        <img src="images/amd_icon.jpg" alt="AMD">
+                    </div>
+                    <div class="tech-logo" data-tooltip="NVIDIA RTX GPUs">
+                        <img src="images/nvidia_icon.png" alt="NVIDIA">
+                    </div>
+                    <div class="tech-logo" data-tooltip="Apple IOS">
+                        <img src="images/IOS_icon.png" alt="Samsung">
+                    </div>
                 </div>
             </div>
         </section>
@@ -67,7 +195,7 @@
             </div>
             <div class="footer-section">
                 <h3>Contact Us</h3>
-                <p>Email: info@KamoTech Plug.co.za</p>
+                <p>Email: info@PlugTech.co.za</p>
                 <p>Phone: +27 12 345 6789</p>
             </div>
             <div class="footer-section">
@@ -80,7 +208,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 KamoTech Plug. All rights reserved.</p>
+            <p>&copy; 2025 Plug Tech Pty Ltd. All rights reserved.</p>
         </div>
     </footer>
 

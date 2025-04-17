@@ -213,3 +213,174 @@ document.getElementById('contactForm')?.addEventListener('submit', function(e) {
 if (window.location.pathname.includes('store.html')) {
     updateCart();
 }
+
+function updateAuthNav() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const loginLink = document.getElementById('login-link');
+    const logoutLink = document.getElementById('logout-link');
+
+    if (currentUser) {
+        loginLink.style.display = 'none';
+        logoutLink.style.display = 'inline';
+    } else {
+        loginLink.style.display = 'inline';
+        logoutLink.style.display = 'none';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', updateAuthNav);
+function showWelcomeMessage() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const welcomeMessage = document.getElementById('welcome-message');
+
+    if (currentUser) {
+        welcomeMessage.style.display = 'block';
+        welcomeMessage.innerHTML = `
+            <h3>Welcome back, ${currentUser.name}!</h3>
+            <p>Enjoy your shopping experience at Tech Haven. Check out our <a href="store.html">latest tech products</a>.</p>
+        `;
+    } else {
+        welcomeMessage.style.display = 'none';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    updateAuthNav();
+    showWelcomeMessage();
+});
+
+function showPersonalizedRecommendations() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const recommendationsSection = document.getElementById('personalized-recommendations');
+
+    if (currentUser) {
+        recommendationsSection.style.display = 'block';
+        // For demo, we'll just show some featured products
+        const recommendedProducts = [
+            { name: 'PowerBook Pro Max 15', price: 18999.00, image: 'images/images2.jfif' },
+            { name: 'NVIDIA RTX 4090 Founders Edition', price: 35999.00, image: 'images/images2.jfif' }
+        ];
+
+        const productsContainer = recommendationsSection.querySelector('.recommended-products');
+        productsContainer.innerHTML = recommendedProducts.map(product => `
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                </div>
+                <h4>${product.name}</h4>
+                <p class="price">R${product.price.toLocaleString('en-ZA')}.00</p>
+                <button class="add-to-cart-btn" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+            </div>
+        `).join('');
+    } else {
+        recommendationsSection.style.display = 'none';
+    }
+}
+
+if (window.location.pathname.includes('store.html')) {
+    document.addEventListener('DOMContentLoaded', showPersonalizedRecommendations);
+}
+
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    const speed = 200;
+
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-count');
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(animateCounters, 1);
+        } else {
+            counter.innerText = target;
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(animateCounters, 500);
+
+    const valueCards = document.querySelectorAll('.value-card');
+    valueCards.forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            const icon = this.querySelector('svg');
+            if (icon) {
+                icon.style.fill = '#00d2ff';
+            }
+        });
+
+        card.addEventListener('mouseleave', function () {
+            const icon = this.querySelector('svg');
+            if (icon) {
+                icon.style.fill = '#3a7bd5';
+            }
+        });
+    });
+
+    const techLogos = document.querySelectorAll('.tech-logo');
+    techLogos.forEach(logo => {
+        logo.addEventListener('click', function () {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1.1)';
+            }, 100);
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            console.log('Form submitted:', { name, email, subject, message });
+
+            alert('Thank you for your message! Our tech team will get back to you soon.');
+
+            contactForm.reset();
+        });
+    }
+
+    const inputs = document.querySelectorAll('.tech-input, .tech-textarea');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function () {
+            this.parentElement.querySelector('.input-underline').style.width = '100%';
+        });
+
+        input.addEventListener('blur', function () {
+            if (!this.value) {
+                this.parentElement.querySelector('.input-underline').style.width = '0';
+            }
+        });
+    });
+
+    const supportCards = document.querySelectorAll('.support-card');
+    supportCards.forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            const icon = this.querySelector('svg');
+            if (icon) {
+                icon.style.fill = '#2a6bc5';
+            }
+        });
+
+        card.addEventListener('mouseleave', function () {
+            const icon = this.querySelector('svg');
+            if (icon) {
+                icon.style.fill = '#3a7bd5';
+            }
+        });
+    });
+});

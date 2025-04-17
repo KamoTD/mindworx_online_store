@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Tech Plug</title>
+    <title>Contact Us - Plug Tech</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
@@ -11,7 +11,7 @@
     <header>
         <div class="logo-container">
             <img src="images/logo.jpg" alt="Tech Haven Logo" class="logo" style="border-radius: 50%;">
-            <h1>KamoTech Plug</h1>
+            <h1>Plug Tech</h1>
         </div>
         <nav>
             <ul>
@@ -19,67 +19,205 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="store.html">Store</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
-                <li><a href="store.html" class="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+                <li id="auth-nav-item">
+                    <a href="login.html" id="login-link">Login</a>
+                    <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
+                </li>
+                <li><a href="#cart-section" class="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="contact-page">
-        <h2>Contact Us</h2>
+        <header class="contact-header">
+            <div class="circuit-animation"></div>
+            <h2 class="contact-title"><span class="tech-bracket">[</span> Contact Us <span class="tech-bracket">]</span></h2>
+            <p class="contact-subtitle">Get in touch with our tech support team for any inquiries or assistance</p>
+        </header>
 
         <div class="contact-container">
             <section class="contact-info">
-                <h3>Get in Touch</h3>
-                <p><strong>Email:</strong> info@TechPlug.co.za</p>
-                <p><strong>Phone:</strong> +27 12 345 6789</p>
-                <p><strong>Address:</strong> 123 Bottlebrush, Johannesburg, 2000</p>
+                <div class="info-card">
+                    <div class="card-header">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        <h3>Contact Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="contact-method">
+                            <svg class="method-icon" viewBox="0 0 24 24">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <div>
+                                <p class="method-label">Email</p>
+                                <p class="method-value">info@TechPlug.co.za</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <svg class="method-icon" viewBox="0 0 24 24">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <div>
+                                <p class="method-label">Phone</p>
+                                <p class="method-value">+27 12 345 6789</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <svg class="method-icon" viewBox="0 0 24 24">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <div>
+                                <p class="method-label">Address</p>
+                                <p class="method-value">123 Bottlebrush, Johannesburg, 2000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="business-hours">
-                    <h4>Business Hours</h4>
-                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p>Saturday: 10:00 AM - 4:00 PM</p>
-                    <p>Sunday: Closed</p>
+                <div class="info-card hours-card">
+                    <div class="card-header">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        <h3>Business Hours</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="business-hour">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="business-hour">
+                            <span class="day">Saturday</span>
+                            <span class="time">10:00 AM - 4:00 PM</span>
+                        </div>
+                        <div class="business-hour">
+                            <span class="day">Sunday</span>
+                            <span class="time closed">Closed</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section class="contact-form">
-                <h3>Send Us a Message</h3>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
+                <div class="form-container">
+                    <div class="form-header">
+                        <h3><span class="tech-slash">//</span> Send Us a Message</h3>
+                        <p>Our tech team typically responds within 24 hours</p>
                     </div>
+                    <form id="contactForm" class="tech-form">
+                        <div class="form-group">
+                            <label for="name">
+                                <svg class="input-icon" viewBox="0 0 24 24">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                                Name
+                            </label>
+                            <input type="text" id="name" name="name" required class="tech-input">
+                            <div class="input-underline"></div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+                        <div class="form-group">
+                            <label for="email">
+                                <svg class="input-icon" viewBox="0 0 24 24">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                Email
+                            </label>
+                            <input type="email" id="email" name="email" required class="tech-input">
+                            <div class="input-underline"></div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="subject">Subject:</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                <svg class="input-icon" viewBox="0 0 24 24">
+                                    <polyline points="4 17 10 11 4 5" />
+                                    <line x1="12" y1="19" x2="20" y2="19" />
+                                </svg>
+                                Subject
+                            </label>
+                            <input type="text" id="subject" name="subject" required class="tech-input">
+                            <div class="input-underline"></div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="message">
+                                <svg class="input-icon" viewBox="0 0 24 24">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                </svg>
+                                Message
+                            </label>
+                            <textarea id="message" name="message" rows="5" required class="tech-textarea"></textarea>
+                            <div class="input-underline"></div>
+                        </div>
 
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24">
+                                <line x1="22" y1="2" x2="11" y2="13" />
+                                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
             </section>
         </div>
 
         <section class="location-map">
-            <h3>Our Location</h3>
+            <div class="map-header">
+                <h3><span class="tech-arrow">></span> Our Location</h3>
+                <p>Visit our tech hub in Johannesburg</p>
+            </div>
             <div class="map-container">
-                <iframe width="100%" height="300px;" 
-                        id="gmap_canvas" 
-                        src="https://maps.google.com/maps?q=Johannesburg&t=&z=13&ie=UTF8&iwloc=&output=embed" 
-                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                        style="text-align: left">
-
+                <div class="map-overlay"></div>
+                <iframe width="100%" height="400" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=Johannesburg&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
                 </iframe>
+            </div>
+        </section>
+
+        <section class="tech-support">
+            <div class="support-container">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                    </div>
+                    <h4>Technical Support</h4>
+                    <p>For hardware and software issues</p>
+                    <a href="mailto:support@TechPlug.co.za" class="support-link">support@TechPlug.co.za</a>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+                            <path d="M22 12A10 10 0 0 0 12 2v10z" />
+                        </svg>
+                    </div>
+                    <h4>Sales Inquiries</h4>
+                    <p>For product and pricing questions</p>
+                    <a href="mailto:sales@TechPlug.co.za" class="support-link">sales@TechPlug.co.za</a>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z" />
+                        </svg>
+                    </div>
+                    <h4>Returns & Warranty</h4>
+                    <p>For product returns and warranty claims</p>
+                    <a href="mailto:returns@TechPlug.co.za" class="support-link">returns@TechPlug.co.za</a>
+                </div>
             </div>
         </section>
     </main>
@@ -97,7 +235,7 @@
             </div>
             <div class="footer-section">
                 <h3>Contact Us</h3>
-                <p>Email: info@Tech Plug.co.za</p>
+                <p>Email: info@PlugTech.co.za</p>
                 <p>Phone: +27 12 345 6789</p>
             </div>
             <div class="footer-section">
@@ -110,7 +248,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Tech Plug. All rights reserved.</p>
+            <p>&copy; 2025 Plug Tech Pty Ltd. All rights reserved.</p>
         </div>
     </footer>
 
